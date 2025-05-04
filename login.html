@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (name === "") {
+                alert("First Name is required.");
+                return false;
+            }
+            if (email === "") {
+                alert("Email is required.");
+                return false;
+            }
+            if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (password === "") {
+                alert("Password is required.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="log-form">
+        <h1>Login Form</h1>
+        <form action="index.html" method="post" onsubmit="return validateForm()">
+            <label for="name">First Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Email" required><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="index.html">Register here</a></p>
+    </div>
+</body>
+</html>
